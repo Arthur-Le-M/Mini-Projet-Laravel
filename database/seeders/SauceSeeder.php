@@ -23,7 +23,7 @@ class SauceSeeder extends Seeder
             'imgURL' => 'https://cdn.shopify.com/s/files/1/0020/9417/0167/products/heinz-sauce-ketchup-medium-01312403-33733864128675.jpg?crop=center&height=1200&v=1660369862&width=1200',
             'heat' => 0,
             'likes' => 0,
-            'dislikes' => 0,
+            'dislikes' => 0
         ]);
         DB::table('sauces')->insert([
             'name' => 'Mayonnaise',

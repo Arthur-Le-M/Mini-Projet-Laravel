@@ -23,10 +23,9 @@ return new class extends Migration
             $table->integer('heat');
             $table->integer('likes');
             $table->integer('dislikes');
-            $table->json('usersWhoLiked');
-            $table->json('usersWhoDisliked');
+            $table->json('usersWhoLiked')->default(json_encode([]));
+            $table->json('usersWhoDisliked')->default(json_encode([]));
             $table->timestamps();
-
         });
     }
 
