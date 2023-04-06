@@ -130,5 +130,4 @@ class sauceController extends Controller
         $sauce->delete();
         return redirect()->route('sauce')->with('success', 'Votre sauce a bien été supprimée');
     }
-
 }

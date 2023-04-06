@@ -26,7 +26,6 @@
 
                     btnDelete.addEventListener('click', (e) =>{
                     //On créer une fenêtre modale en plein milieu de la page
-
                     let modal = document.createElement('div');
                     modal.classList.add('modal');
                     modal.innerHTML = `
@@ -51,6 +50,37 @@
                     modal = document.querySelector('.modal');
                     document.body.removeChild(modal);
                     });
+                });
+
+                //Bouton édition
+                btnEdit = document.querySelector('#edit');
+
+                btnEdit.addEventListener('click', (e) =>{
+                    let modal = document.createElement('div');
+                    modal.classList.add('modal');
+                    modal.innerHTML = `
+                        <div class="modal-content-edit">
+                            <form action="{{ route('editSauce') }}" method="POST">
+                                <h2>Edit your sauce</h2>
+                                @csrf
+                                <label for="name">Name</label><br>
+                                <input type="text" name="name" id="name" value="{{ $sauce->name }}"><br>
+                                <label for="manufacturer">Manufacturer</label><br>
+                                <input type="text" name="manufacturer" id="manufacturer" value="{{ $sauce->manufacturer }}"><br>
+                                <label for="description">Description</label><br>
+                                <input type="text" name="description" id="description" cols="30" rows="10" value="{{ $sauce->description }}"><br>
+                                <label for="mainPepper">Main Pepper</label><br>
+                                <input type="text" name="mainPepper" id="mainPepper" value="{{ $sauce->mainPepper }}"><br>
+                                <label for="heat">Heat</label><br>
+                                <input type="number" name="heat" id="heat" value="{{ $sauce->heat }}"><br>
+                                <label for="imgURL">Image URL</label><br>
+                                <input type="text" name="imgURL" value="{{ $sauce->imgURL }}"><br>
+                                <button type="submit">Save</button>
+                            </form>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                    
                 });
                 </script>
                 @endif
