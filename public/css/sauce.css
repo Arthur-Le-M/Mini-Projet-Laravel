@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.container img {
+    width: 550px;
+    height: 550px;
+}
+
+.container h2 {
+    font-size: 52px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.titreDesc{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.container div p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonSauce{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#like{
+    background-color: #4CAF50;
+}
