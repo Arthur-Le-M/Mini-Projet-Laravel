@@ -58,3 +58,7 @@ Route::get('likeSauce/{id}', [sauceController::class, 'likeSauce'])
 
 Route::get('dislikeSauce/{id}', [sauceController::class, 'dislikeSauce'])
     ->name('dislikeSauce');
+
+//Suppression Edition
+Route::get('deleteSauce/{id}', [sauceController::class, 'deleteSauce'])
+    ->name('deleteSauce');

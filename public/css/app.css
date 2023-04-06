@@ -43,3 +43,9 @@ header div img{
 #accountManager a{
     margin-right: 10px;
 }
+
+#accountManager #loginInformation{
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}

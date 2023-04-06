@@ -23,6 +23,7 @@
             </div></a>
             <div id="accountManager">
                 @if(session()->has('utilisateur'))
+                    <p id="loginInformation"> Logged in as {{ session('utilisateur')->email }} </p>
                     <a href={{ route('logout') }}>LOGOUT</a>
                 @else
                     <a href={{ route('login') }}>LOGIN</a>

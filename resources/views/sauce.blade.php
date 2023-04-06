@@ -12,8 +12,14 @@
             <div>
                 <a class="buttonSauce" id="like" href='{{route('likeSauce', ['id' => $sauce->id])}}'>👍 {{ $sauce->likes }}</a>
                 <a class="buttonSauce" id="dislike" href='{{route('dislikeSauce', ['id' => $sauce->id])}}'>👎 {{ $sauce->dislikes }}</a>
-        </div>
-
-
+            </div>
+            <div>
+                @if(session('utilisateur')->id == $sauce->userID)
+                <p><span class='titreDesc'>🛠 Manage your sauce : </span></p>
+                <a class="buttonSauce" id="edit" >✏ Edit</a>
+                <a class="buttonSauce" id="delete">🗑 Delete</a>
+                <script src="{{asset('js/boutonSuppression.js')}}"></script>
+                @endif
+            </div>
     </div>
 @endsection

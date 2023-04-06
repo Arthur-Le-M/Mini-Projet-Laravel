@@ -118,5 +118,17 @@ class sauceController extends Controller
         return redirect()->back()->with('success', 'Vous avez disliké cette sauce');
     }
 
+    public function deleteSauce($id){
+        //Vérification de la session
+        if(!session('utilisateur'))
+            return redirect()->route('login');
+        //Vérification que l'utilisateur est bien le propriétaire de la sauce
+        $sauce = sauce::findOrfail($id);
+        if($sauce->userID != session('utilisateur')->id)
+            return redirect()->back()->with('error', 'Vous n\'êtes pas le propriétaire de cette sauce');
+        //Suppression de la sauce
+        $sauce->delete();
+        return redirect()->route('sauce')->with('success', 'Votre sauce a bien été supprimée');
+    }
 
 }
