@@ -14,7 +14,7 @@
                 <a class="buttonSauce" id="dislike" href='{{route('dislikeSauce', ['id' => $sauce->id])}}'>👎 {{ $sauce->dislikes }}</a>
             </div>
             <div>
-                @if(session('utilisateur')->id == $sauce->userID)
+                @if(session('utilisateur') && session('utilisateur')->id == $sauce->userID)
                 <p><span class='titreDesc'>🛠 Manage your sauce : </span></p>
                 <a class="buttonSauce" id="edit" >✏ Edit</a>
                 <a class="buttonSauce" id="delete">🗑 Delete</a>
@@ -60,7 +60,7 @@
                     modal.classList.add('modal');
                     modal.innerHTML = `
                         <div class="modal-content-edit">
-                            <form action="{{ route('editSauce') }}" method="POST">
+                            <form action="{{route('editSauce', ['id' => $sauce->id])}}" method="POST">
                                 <h2>Edit your sauce</h2>
                                 @csrf
                                 <label for="name">Name</label><br>

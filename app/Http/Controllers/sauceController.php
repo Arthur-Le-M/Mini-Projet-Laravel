@@ -130,4 +130,33 @@ class sauceController extends Controller
         $sauce->delete();
         return redirect()->route('sauce')->with('success', 'Votre sauce a bien été supprimée');
     }
+
+    public function editSauce($id, Request $request){
+        //Vérification de la session
+        if(!session('utilisateur'))
+            return redirect()->route('login');
+        //Vérification que l'utilisateur est bien le propriétaire de la sauce
+        $sauce = sauce::findOrfail($id);
+        if($sauce->userID != session('utilisateur')->id)
+            return redirect()->back()->with('error', 'Vous n\'êtes pas le propriétaire de cette sauce');
+        //Modification de la sauce
+        $request -> validate([
+            'name' => 'required',
+            'manufacturer' => 'required',
+            'description' => 'required',
+            'mainPepper' => 'required',
+            'heat' => 'required',
+            'imgURL' => 'required'
+        ]);
+        
+        $sauce->name = $request->name;
+        $sauce->manufacturer = $request->manufacturer;
+        $sauce->description = $request->description;
+        $sauce->mainPepper = $request->mainPepper;
+        $sauce->heat = $request->heat;
+        $sauce->imgURL = $request->imgURL;
+        //Insertion en base de données
+        $sauce->save();
+        return redirect()->back()->with('success', 'Votre sauce a bien été modifiée');
+    }
 }

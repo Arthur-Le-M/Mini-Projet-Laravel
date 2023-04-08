@@ -62,3 +62,6 @@ Route::get('dislikeSauce/{id}', [sauceController::class, 'dislikeSauce'])
 //Suppression Edition
 Route::get('deleteSauce/{id}', [sauceController::class, 'deleteSauce'])
     ->name('deleteSauce');
+
+Route::post('editSauce/{id}', [sauceController::class, 'editSauce'])
+    ->name('editSauce');
